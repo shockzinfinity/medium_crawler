@@ -227,7 +227,7 @@ class MediumCrawler:
                 raise Exception("'Sign in with email' 버튼을 찾을 수 없습니다. 스크린샷: debug_email_button_not_found.png")
             
             # 이메일 입력 필드 찾기 (placeholder가 'Enter your email address'인 input)
-            print(f"이메일 입력 필드 찾는 중...")
+            print("이메일 입력 필드 찾는 중...")
             email_input = self.page.locator('input[placeholder="Enter your email address"]').first
             try:
                 email_input.wait_for(state='visible', timeout=10000)
@@ -259,7 +259,8 @@ class MediumCrawler:
                             is_disabled = continue_button.get_attribute('disabled')
                             if not is_disabled:
                                 break
-                except:
+                except Exception as e:
+                    print(f"버튼 비활성화 확인 중 오류: {e}")
                     pass  # disabled 속성이 없을 수도 있음
                 
                 if not self._robust_click(continue_button, "Continue 버튼", click_type='auto'):
@@ -445,7 +446,8 @@ class MediumCrawler:
                 h1 = article.query_selector('h1')
                 if h1:
                     return h1.inner_text().strip()
-        except:
+        except Exception as e:
+            print(f"제목 추출 중 오류: {e}")
             pass
         
         # 대체 방법
@@ -462,7 +464,8 @@ class MediumCrawler:
                 element = self.page.query_selector(selector)
                 if element:
                     return element.inner_text().strip()
-            except:
+            except Exception as e:
+                print(f"제목 추출 중 오류: {e}")
                 continue
         
         return None
@@ -476,7 +479,8 @@ class MediumCrawler:
                 author_link = article.query_selector('a[href*="/@"]')
                 if author_link:
                     return author_link.inner_text().strip()
-        except:
+        except Exception as e:
+            print(f"작성자 추출 중 오류: {e}")
             pass
         
         # 대체 방법
@@ -494,7 +498,8 @@ class MediumCrawler:
                 element = self.page.query_selector(selector)
                 if element:
                     return element.inner_text().strip()
-            except:
+            except Exception as e:
+                print(f"작성자 추출 중 오류: {e}")
                 continue
         
         return None
@@ -515,7 +520,8 @@ class MediumCrawler:
                     date_text = element.inner_text().strip()
                     datetime_attr = element.get_attribute('datetime')
                     return datetime_attr or date_text
-            except:
+            except Exception as e:
+                print(f"발행일 추출 중 오류: {e}")
                 continue
         
         return None
@@ -533,7 +539,8 @@ class MediumCrawler:
                     tag_text = link.inner_text().strip()
                     if tag_text and tag_text not in tags:
                         tags.append(tag_text)
-        except:
+        except Exception as e:
+            print(f"태그 추출 중 오류: {e}")
             pass
         
         if tags:
@@ -557,7 +564,8 @@ class MediumCrawler:
                         tags.append(tag_text)
                 if tags:
                     break
-            except:
+            except Exception as e:
+                print(f"태그 추출 중 오류: {e}")
                 continue
         
         return tags
@@ -599,9 +607,11 @@ class MediumCrawler:
                     if data_value:
                         try:
                             return int(data_value)
-                        except:
+                        except Exception as e:
+                            print(f"클랩 수 추출 중 오류: {e}")
                             pass
-            except:
+            except Exception as e:
+                print(f"클랩 수 추출 중 오류: {e}")
                 continue
         
         # JavaScript로 직접 값 추출 시도
@@ -619,7 +629,8 @@ class MediumCrawler:
             """)
             if clap_value:
                 return clap_value
-        except:
+        except Exception as e:
+            print(f"클랩 수 추출 중 오류: {e}")
             pass
         
         return None
@@ -641,7 +652,8 @@ class MediumCrawler:
                     numbers = re.findall(r'\d+', time_text)
                     if numbers:
                         return int(numbers[0])
-            except:
+            except Exception as e:
+                print(f"읽기 시간 추출 중 오류: {e}")
                 continue
         
         return None
@@ -685,7 +697,8 @@ class MediumCrawler:
                             content_parts.append(text)
                     if content_parts:
                         return '\n\n'.join(content_parts)
-        except:
+        except Exception as e:
+            print(f"본문 내용 추출 중 오류: {e}")
             pass
         
         # 방법 3: article.meteredContent 내의 postArticle-content에서 추출
@@ -701,7 +714,8 @@ class MediumCrawler:
                             content_parts.append(text)
                     if content_parts:
                         return '\n\n'.join(content_parts)
-        except:
+        except Exception as e:
+            print(f"본문 내용 추출 중 오류: {e}")
             pass
         
         # 방법 4: article.meteredContent 내의 section에서 추출
@@ -717,7 +731,8 @@ class MediumCrawler:
                             content_parts.append(text)
                     if content_parts:
                         return '\n\n'.join(content_parts)
-        except:
+        except Exception as e:
+            print(f"본문 내용 추출 중 오류: {e}")
             pass
         
         return None
@@ -758,9 +773,11 @@ class MediumCrawler:
                     
                     if 'comments' in metadata:
                         break
-                except:
+                except Exception as e:
+                    print(f"댓글/응답 수 추출 중 오류: {e}")
                     continue
-        except:
+        except Exception as e:
+            print(f"댓글/응답 수 추출 중 오류: {e}")
             pass
         
         # 조회수 (views) - 있는 경우
@@ -779,9 +796,11 @@ class MediumCrawler:
                         if numbers:
                             metadata['views'] = int(numbers[0])
                             break
-                except:
+                except Exception as e:
+                    print(f"조회수 추출 중 오류: {e}")
                     continue
-        except:
+        except Exception as e:
+            print(f"조회수 추출 중 오류: {e}")
             pass
         
         # 작성자 프로필 링크
@@ -791,7 +810,8 @@ class MediumCrawler:
                 author_url = author_link.get_attribute('href')
                 if author_url:
                     metadata['author_url'] = author_url
-        except:
+        except Exception as e:
+            print(f"작성자 프로필 링크 추출 중 오류: {e}")
             pass
         
         return metadata

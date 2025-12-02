@@ -2,7 +2,6 @@ import base64
 import os
 import re
 import time
-from datetime import datetime, timedelta
 
 from dotenv import load_dotenv
 from google.auth.transport.requests import Request
@@ -119,7 +118,7 @@ class GmailAuth:
                                 id=message['id'],
                                 body={'removeLabelIds': ['UNREAD']}
                             ).execute()
-                            print(f"  인증 코드 찾음! (이메일 읽음 처리 완료)")
+                            print("  인증 코드 찾음! (이메일 읽음 처리 완료)")
                         except Exception as e:
                             print(f"  인증 코드 찾음! (읽음 처리 실패: {e})")
                         return code

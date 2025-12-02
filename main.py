@@ -71,7 +71,7 @@ def main():
     urls_file = os.getenv('URLS_FILE', 'urls.txt')
     if not os.path.exists(urls_file):
         logger.warning(f"URL 리스트 파일을 찾을 수 없습니다: {urls_file}")
-        logger.warning(f"로그인은 성공했지만 크롤링할 URL이 없습니다.")
+        logger.warning("로그인은 성공했지만 크롤링할 URL이 없습니다.")
         logger.warning(f"'{urls_file}' 파일을 생성하고 크롤링할 URL을 한 줄에 하나씩 입력하세요.")
         crawler.close_browser()
         sys.exit(0)
