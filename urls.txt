@@ -1,0 +1,1 @@
+https://medium.com/@maahisoft20/we-replaced-elasticsearch-with-postgres-full-text-search-query-times-went-from-800ms-to-99ms-dbed2db5bd04
