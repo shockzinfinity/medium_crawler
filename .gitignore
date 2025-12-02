@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Environment variables
+.env
+token.json
+
+# Gmail API credentials
+credentials.json
+
+# Output
+output/
+*.json
+
+# Logs
+logs/
+*.log
+
+# Debug screenshots
+debug_*.png
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
