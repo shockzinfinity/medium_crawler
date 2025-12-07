@@ -14,3 +14,8 @@ dependencies = [
     "python-dotenv>=1.0.1",
     "beautifulsoup4>=4.12.3",
 ]
+
+[tool.black]
+line-length = 100
+# Black은 PEP 8을 따르므로 항상 4칸 들여쓰기를 사용합니다.
+# 2칸 들여쓰기를 원하시면 Black 대신 autopep8이나 다른 formatter를 사용하세요.
