@@ -1,0 +1,195 @@
+# 기본 설정: 모든 텍스트 파일을 LF로 정규화
+* text=auto eol=lf
+
+# 소스 코드 파일들
+*.py text eol=lf diff=python
+*.pyw text eol=lf
+*.pyi text eol=lf
+
+# 설정 파일들
+*.toml text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.jsonc text eol=lf
+*.ini text eol=lf
+*.cfg text eol=lf
+*.conf text eol=lf
+*.config text eol=lf
+
+# 문서 파일들
+*.md text eol=lf
+*.txt text eol=lf
+*.rst text eol=lf
+*.adoc text eol=lf
+
+# 스크립트 파일들
+*.sh text eol=lf
+*.bash text eol=lf
+*.zsh text eol=lf
+*.fish text eol=lf
+*.ps1 text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.sln text eol=crlf
+*.vcxproj text eol=crlf
+*.csproj text eol=crlf
+
+# 웹 관련 파일들
+*.html text eol=lf
+*.htm text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.sass text eol=lf
+*.less text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.mjs text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.vue text eol=lf
+*.svelte text eol=lf
+
+# 데이터 파일들
+*.csv text eol=lf
+*.tsv text eol=lf
+*.xml text eol=lf
+*.xsl text eol=lf
+*.xslt text eol=lf
+
+# Docker 및 인프라 파일들
+Dockerfile text eol=lf
+*.dockerfile text eol=lf
+.dockerignore text eol=lf
+docker-compose*.yml text eol=lf
+*.tf text eol=lf
+*.tfvars text eol=lf
+*.hcl text eol=lf
+
+# Git 관련 파일들
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.gitmodules text eol=lf
+.gitkeep text eol=lf
+
+# 기타 텍스트 파일들
+*.log text eol=lf
+*.sql text eol=lf
+*.graphql text eol=lf
+*.gql text eol=lf
+*.proto text eol=lf
+*.thrift text eol=lf
+*.avsc text eol=lf
+*.avdl text eol=lf
+
+# 바이너리 파일들
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.webp binary
+*.bmp binary
+*.tiff binary
+*.tif binary
+
+# 압축 파일들
+*.zip binary
+*.tar binary
+*.gz binary
+*.bz2 binary
+*.xz binary
+*.7z binary
+*.rar binary
+
+# 실행 파일들
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+*.a binary
+*.lib binary
+*.o binary
+*.obj binary
+
+# 미디어 파일들
+*.mp3 binary
+*.mp4 binary
+*.avi binary
+*.mov binary
+*.wmv binary
+*.flv binary
+*.wav binary
+*.ogg binary
+*.webm binary
+
+# 폰트 파일들
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.eot binary
+
+# 데이터베이스 파일들
+*.db binary
+*.sqlite binary
+*.sqlite3 binary
+*.mdb binary
+*.accdb binary
+
+# 문서 바이너리 파일들
+*.pdf binary
+*.doc binary
+*.docx binary
+*.xls binary
+*.xlsx binary
+*.ppt binary
+*.pptx binary
+
+# 기타 바이너리 파일들
+*.pyc binary
+*.pyo binary
+*.pyd binary
+*.class binary
+*.jar binary
+*.war binary
+*.ear binary
+*.egg binary
+*.whl binary
+
+# Lock 파일들 (일부는 텍스트로 처리)
+*.lock text eol=lf
+uv.lock text eol=lf
+package-lock.json text eol=lf
+yarn.lock text eol=lf
+pnpm-lock.yaml text eol=lf
+poetry.lock text eol=lf
+Pipfile.lock text eol=lf
+
+# 환경 변수 파일들
+.env text eol=lf
+.env.* text eol=lf
+*.env text eol=lf
+
+# 임시 및 캐시 파일들
+*.tmp binary
+*.cache binary
+*.swp binary
+*.swo binary
+*~ binary
+.*.swp binary
+.*.swo binary
+
+# 특정 디렉토리 제외 (필요시)
+__pycache__/ binary
+*.py[cod] binary
+.pytest_cache/ binary
+.mypy_cache/ binary
+.ruff_cache/ binary
+.venv/ binary
+venv/ binary
+env/ binary
+ENV/ binary
+
