@@ -20,10 +20,10 @@ Python 3.13을 사용 중이라면 `greenlet`의 pre-built wheel이 없을 수 �
   - "C++ build tools" 워크로드 선택
   - 설치 후 다시 `pip install -r requirements.txt` 실행
 
-- **방법 2**: Python 3.12 사용
+- **방법 2**: Python 3.13 사용
 
-  - Python 3.12는 대부분의 패키지에 대해 pre-built wheel을 제공합니다
-  - Python 3.12로 가상환경 생성 후 설치
+  - Python 3.13는 대부분의 패키지에 대해 pre-built wheel을 제공합니다
+  - Python 3.13로 가상환경 생성 후 설치
 
 - **방법 3**: Pre-built wheel 강제 사용 (Python 3.12 이하)
   ```bash
@@ -40,8 +40,9 @@ playwright install
 3. Gmail API 설정:
 
    **자세한 설정 방법은 [GMAIL_API_SETUP.md](GMAIL_API_SETUP.md)를 참조하세요.**
-   
+
    간단 요약:
+
    - [Google Cloud Console](https://console.cloud.google.com/)에서 프로젝트 생성
    - Gmail API 활성화
    - OAuth 2.0 클라이언트 ID 생성 (Desktop app)
