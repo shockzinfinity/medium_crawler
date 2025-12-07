@@ -8,6 +8,7 @@ env/
 venv/
 ENV/
 .venv
+.ruff_cache/
 
 # Environment variables
 .env
@@ -17,12 +18,18 @@ token.json
 credentials.json
 
 # Output
-output/
+output/*
+!output/.gitkeep
 *.json
 
 # Logs
-logs/
+logs/*
+!logs/.gitkeep
 *.log
+
+# downloads
+downloads/*
+!downloads/.gitkeep
 
 # Debug screenshots
 debug_*.png
