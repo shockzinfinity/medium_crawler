@@ -25,8 +25,6 @@ SCOPES = [
     'https://www.googleapis.com/auth/gmail.modify'
 ]
 
-SENDER_EMAIL = os.getenv('SENDER_EMAIL')
-
 
 class GmailChecker:
   def __init__(self, credentials_path=None, token_path=None, sender_email=None):
@@ -354,27 +352,6 @@ class GmailChecker:
     except Exception as e:
       logger.error(f"파일 다운로드 실패: {e}")
       return None
-
-  def _get_attachments_from_payload(self, payload, message_id):
-    """payload에서 첨부파일 정보 추출"""
-    attachments = []
-
-    def extract_attachments(part):
-      """재귀적으로 parts에서 첨부파일 찾기"""
-      if part.get('filename') and part.get('body', {}).get('attachmentId'):
-        attachments.append({
-            'filename': part['filename'],
-            'mimeType': part.get('mimeType', 'application/octet-stream'),
-            'attachmentId': part['body']['attachmentId'],
-            'size': part.get('body', {}).get('size', 0)
-        })
-
-      if 'parts' in part:
-        for subpart in part['parts']:
-          extract_attachments(subpart)
-
-    extract_attachments(payload)
-    return attachments
 
   def get_medium_list(self, email=None, sender_email=None, download_path="", search_query="", max_retries=5, retry_interval=5, browser_page=None):
     if not email:
