@@ -292,14 +292,6 @@ class GmailChecker:
     try:
       logger.info(f"다운로드 요청: {url}")
 
-      # 파일명 추출 (URL의 마지막 부분)
-      filename = url.split("/")[-1] or "downloaded_file"
-      # URL 파라미터 제거
-      if "?" in filename:
-        filename = filename.split("?")[0]
-
-      file_path = os.path.join(download_path, filename)
-
       # 브라우저 페이지가 있으면 브라우저로 다운로드 (로그인된 세션 사용)
       if browser_page:
         logger.debug("브라우저를 통해 다운로드 중...")
@@ -317,6 +309,9 @@ class GmailChecker:
               else:
                 raise
           download = download_info.value
+          file_name = download.suggested_filename
+          if file_name:
+            file_path = os.path.join(download_path, file_name)
           download.save_as(file_path)
           logger.info(f"파일 다운로드 완료: {file_path}")
           return file_path
