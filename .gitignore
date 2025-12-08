@@ -20,7 +20,6 @@ credentials.json
 # Output
 output/*
 !output/.gitkeep
-*.json
 
 # Logs
 logs/*
@@ -35,7 +34,6 @@ downloads/*
 debug_*.png
 
 # IDE
-.vscode/
 .idea/
 *.swp
 *.swo

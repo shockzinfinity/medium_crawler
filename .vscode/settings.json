@@ -1,0 +1,150 @@
+{
+  "files.autoSave": "onFocusChange",
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "D2Coding, Fira Code SemiBold, Consolas, 'Courier New', monospace",
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.tabSize": 2,
+  "editor.codeActionsOnSave": {},
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.detectIndentation": false,
+  "html.format.enable": false,
+  "[html]": {
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "editor.suggestSelection": "first",
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "editor.accessibilityPageSize": 250,
+  "editor.wordWrapColumn": 160,
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    }
+  },
+  "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font, D2Coding",
+  "security.workspace.trust.untrustedFiles": "open",
+  "json.maxItemsComputed": 50000,
+  "git.openRepositoryInParentFolders": "never",
+  "editor.fontSize": 16,
+  "terminal.integrated.inheritEnv": false,
+  "editor.accessibilitySupport": "off",
+  "workbench.iconTheme": "vscode-icons",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.tokenColorCustomizations": {
+    "comments": "#07EE07"
+  },
+  "vsicons.dontShowNewVersionMessage": true,
+  "autopep8.args": [
+    "--indent-size=2",
+    "--max-lin-length",
+    "160",
+    "--experimental"
+  ],
+  "redhat.telemetry.enabled": false,
+  "editor.inlineSuggest.suppressSuggestions": true,
+  "editor.semanticTokenColorCustomizations": {
+    "[Default Dark+]": {
+      "rules": {
+        "property.mandatory:xml": {
+          "bold": true
+        },
+        "string.i18n:xml": {
+          "italic": true
+        }
+      }
+    },
+    "[Default Light+]": {
+      "rules": {
+        "property.mandatory:xml": {
+          "bold": true
+        },
+        "string.i18n:xml": {
+          "italic": true
+        }
+      }
+    },
+    "[Default High Contrast]": {
+      "rules": {
+        "property.mandatory:xml": {
+          "bold": true
+        },
+        "string.i18n:xml": {
+          "italic": true
+        }
+      }
+    }
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "explorer.confirmDelete": false,
+  "diffEditor.codeLens": true,
+  "remote.SSH.remotePlatform": {
+    "192.168.0.14": "linux"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "gitlens.plusFeatures.enabled": false,
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "remote.defaultExtensionsIfInstalledLocally": [],
+  "maven.terminal.useJavaHome": true,
+  "java.debug.settings.onBuildFailureProceed": true,
+  "java.configuration.maven.userSettings": "C:/Users/shockz/Desktop/hdxbuilder_vscode/apache-maven-3.6.3/settings.xml",
+  "xml.symbols.maxItemsComputed": 50000,
+  "docker.extension.enableComposeLanguageServer": false,
+  "terminal.integrated.fontSize": 16,
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "explorer.confirmPasteNative": false,
+  "terminal.integrated.automationProfile.linux": {}
+}

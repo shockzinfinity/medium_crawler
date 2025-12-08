@@ -427,8 +427,6 @@ class MediumCrawler:
           'author': self._extract_author(),
           'published_date': self._extract_published_date(),
           'tags': self._extract_tags(),
-          'claps': self._extract_claps(),
-          'reading_time': self._extract_reading_time(),
           'content': self._extract_content(),
           'metadata': self._extract_metadata()
       }
@@ -574,96 +572,6 @@ class MediumCrawler:
         continue
 
     return tags
-
-  def _extract_claps(self):
-    """클랩 수 추출"""
-    import re
-
-    # 여러 선택자 시도
-    selectors = [
-        'button[data-testid="clap-button"]',
-        'button[aria-label*="clap" i]',
-        '[data-testid="clapCount"]',
-        'button:has-text("clap")',
-        '.clap-count',
-        'button[aria-label*="applause" i]'
-    ]
-
-    for selector in selectors:
-      try:
-        elements = self.page.query_selector_all(selector)
-        for element in elements:
-          # 텍스트에서 숫자 추출
-          clap_text = element.inner_text().strip()
-          if clap_text:
-            numbers = re.findall(r'\d+', clap_text.replace(',',
-                                 '').replace('K', '000').replace('M', '000000'))
-            if numbers:
-              return int(numbers[0])
-
-          # aria-label에서 숫자 추출
-          aria_label = element.get_attribute('aria-label') or ''
-          if aria_label:
-            numbers = re.findall(r'\d+', aria_label.replace(',',
-                                 '').replace('K', '000').replace('M', '000000'))
-            if numbers:
-              return int(numbers[0])
-
-          # data 속성에서 추출 시도
-          data_value = element.get_attribute('data-value')
-          if data_value:
-            try:
-              return int(data_value)
-            except Exception as e:
-              print(f"클랩 수 추출 중 오류: {e}")
-              pass
-      except Exception as e:
-        print(f"클랩 수 추출 중 오류: {e}")
-        continue
-
-    # JavaScript로 직접 값 추출 시도
-    try:
-      clap_value = self.page.evaluate("""
-        () => {
-          const clapButton = document.querySelector('button[data-testid="clap-button"]');
-          if (clapButton) {
-            const text = clapButton.innerText || clapButton.textContent || '';
-            const match = text.match(/\\d+/);
-            if (match) return parseInt(match[0]);
-          }
-          return null;
-        }
-      """)
-      if clap_value:
-        return clap_value
-    except Exception as e:
-      print(f"클랩 수 추출 중 오류: {e}")
-      pass
-
-    return None
-
-  def _extract_reading_time(self):
-    """읽기 시간 추출"""
-    selectors = [
-        '[data-testid="storyReadingTime"]',
-        'span:has-text("min read")',
-        '.reading-time'
-    ]
-
-    for selector in selectors:
-      try:
-        element = self.page.query_selector(selector)
-        if element:
-          time_text = element.inner_text().strip()
-          import re
-          numbers = re.findall(r'\d+', time_text)
-          if numbers:
-            return int(numbers[0])
-      except Exception as e:
-        print(f"읽기 시간 추출 중 오류: {e}")
-        continue
-
-    return None
 
   def _extract_content(self):
     """본문 내용 추출 - article.meteredContent만 수집"""
